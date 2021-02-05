@@ -39,7 +39,10 @@
     </form>
     <div class="btn-div flex-right">
       <button class="light-btn" (click)="close()">Cancel</button>
-      <button class="btn" (click)="submit()">Save Task</button>
+      <button class="btn" (click)="submit()">
+        <span *ngIf="!loading">Save Task</span>
+        <mat-spinner *ngIf="loading" diameter="25"></mat-spinner>
+      </button>
     </div>
   </div>
 </div>

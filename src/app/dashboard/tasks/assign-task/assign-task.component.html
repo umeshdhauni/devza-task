@@ -9,12 +9,18 @@
               {{user?.name}}
             </mat-option>
           </mat-select>
+          <mat-error
+            *ngIf="form.controls['assigned_to'].errors?.required && (form.controls['assigned_to']?.dirty || form.controls['assigned_to']?.touched)">
+            User is required</mat-error>
         </mat-form-field>
       </div>
     </form>
     <div class="btn-div flex-right">
       <button class="light-btn" (click)="close()">Cancel</button>
-      <button class="btn" (click)="assignUser(form?.value)">Assign User</button>
+      <button class="btn" (click)="assignUser(form?.value)">
+        <span *ngIf="!loading">Assign User</span>
+        <mat-spinner *ngIf="loading" diameter="25"></mat-spinner>
+      </button>
     </div>
   </div>
 </div>

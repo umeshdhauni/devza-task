@@ -12,6 +12,11 @@
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
+        <div>
+          <span class="material-icons close-icon" *ngIf="selectedDate" (click)="removeDateFilter()">
+            close
+          </span>
+        </div>
       </div>
       <button class="btn" (click)="createTask()">Create New Task</button>
     </div>

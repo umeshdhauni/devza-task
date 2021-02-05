@@ -140,12 +140,16 @@ export class TasksComponent implements OnInit {
   }
 
   searchTask(searchText: string) {
-    
+    // console.log(searchText)
+    let result = this.totalTasks.filter((task) => {
+      let taskMessage = task.message.toLowerCase();
+      let search = searchText.toLowerCase();
+      return (new RegExp(search)).test(taskMessage);
+    });
+
+    this.arrangeTasks(result);
   }
 
-  dateFilter(event) {
-    let value = formatDate(event.value);
-    console.log(value);
-  }
+  
 
 }

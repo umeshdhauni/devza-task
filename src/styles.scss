@@ -104,7 +104,7 @@ body {
 }
 
 .page-padding {
-  padding: 3rem 5%;
+  padding: 2rem 5%;
 }
 
 
@@ -116,6 +116,10 @@ body {
   background: #1a8f8a;
   color: white;
   cursor: pointer;
+  min-width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-right {
@@ -135,6 +139,7 @@ body {
   font-family: poppins;
   margin-right: 15px;
   cursor: pointer;
+  padding: 10px 15px;
 }
 
 
@@ -184,4 +189,10 @@ body {
 
 .fh {
   height: 100%;
+}
+
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: white !important;
 }

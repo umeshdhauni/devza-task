@@ -28,7 +28,17 @@ export class UsersComponent implements OnInit {
 
 
   searchUser(searchText: string) {
-    
+    // console.log(searchText)
+    let result = this.totalUsers.filter((user) => {
+      let userName = user.name.toLowerCase();
+      let search = searchText.toLowerCase();
+      return (new RegExp(search)).test(userName)
+    });
+
+    console.log(searchText, result)
+
+
+    this.allUsers = result;
   }
 
 }

@@ -4,5 +4,8 @@
 <div class="right-actions">
   <button mat-button mat-dialog-close>No</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
-  <button (click)="delete();" class="btn ml-2">Yes</button>
+  <button (click)="delete();" class="btn ml-2">
+    <span *ngIf="!loading">Yes</span>
+    <mat-spinner *ngIf="loading" diameter="25"></mat-spinner>
+  </button>
 </div>

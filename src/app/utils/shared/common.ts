@@ -11,6 +11,16 @@ export function patternValidator(regexp: RegExp): ValidatorFn {
   };
 }
 
+export function validationError(form) {
+  Object.keys(form.controls).forEach(field => {
+      const control = form.get(field);
+      control.markAsTouched({ onlySelf: true });
+      if (control.controls) {
+          validationError(control);
+      }
+  });
+}
+
 
 export const priorityList = [
   {

@@ -13,7 +13,7 @@ export interface MatData {
   styleUrls: ['./delete-task.component.scss']
 })
 export class DeleteTaskComponent implements OnInit {
-
+  loading: boolean;
   constructor(
     private dialogRef: MatDialogRef<DeleteTaskComponent>,
     @Inject(MAT_DIALOG_DATA) public data: MatData,
@@ -25,14 +25,17 @@ export class DeleteTaskComponent implements OnInit {
   }
 
   delete() {
+    this.loading = true;
     let formData: FormData = new FormData();
     formData.append('taskid', this.data['task']['id']);
     this.common.deleteTask(formData).subscribe(res => {
+      this.loading = false;
       if (res['status'] != "error") {
         this.dialogRef.close(true);
         this.msg.openSnackBar('Task is deleted successfully');
       }
       else {
+        this.loading = false;
         this.msg.openSnackBar(res['error']);
       }
 
