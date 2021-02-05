@@ -1,0 +1,112 @@
+.menu-list-item.active {
+  border-radius: 5px;
+  //   color: #1a8f8a;
+  background-color: #ffffff59;
+}
+
+.menu-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  align-items: center;
+  //   min-height: 40px;
+  //   margin: 10px 0;
+  padding: 13px 10px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
+
+  .iconify {
+    font-size: 24px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .menu-item-text {
+    margin-top: 7px !important;
+  }
+}
+
+.menu-list-item:focus {
+  outline: none;
+}
+
+.example-toolbar {
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  // justify-content: space-between;
+  justify-content: flex-end;
+
+  align-items: center;
+}
+
+.logo {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    // filter: invert(1);
+  }
+}
+
+
+.menu-list {
+  margin-top: 4rem;
+}
+
+
+
+
+
+
+
+// new sidenav
+.sidenav-container {
+  height: 100%;
+  background-color: white;
+}
+
+.sidenav {
+  width: 120px;
+  //   background-color: white;
+  background: #1a8f8a;
+  // color:white;
+  padding: 15px 20px !important;
+  top: 0;
+  //   top: 65px !important;
+  border-color: white !important;
+  padding-right: 1rem;
+
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+}
+
+.toolBar {
+  position: sticky;
+  top: 0;
+  z-index: 999999;
+}
+
+
+
+
+
+.container-height {
+  height: 100vh;
+  // padding-top: 65px;
+}

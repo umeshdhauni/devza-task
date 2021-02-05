@@ -1,0 +1,45 @@
+<div>
+  <h3>Task Details</h3>
+  <div class="form-div">
+    <form [formGroup]="form">
+      <div>
+        <mat-form-field class="fw">
+          <textarea matInput placeholder="Enter Message" rows="4" formControlName="message"></textarea>
+          <mat-error
+            *ngIf="form.controls['message'].errors?.required && (form.controls['message']?.dirty || form.controls['message']?.touched)">
+            Message is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fw">
+          <mat-label>Due Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="due_date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fw">
+          <mat-select placeholder="Select Priority" formControlName="priority">
+            <mat-option *ngFor="let priority of priorityList" [value]="priority?.value">
+              {{priority?.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fw">
+          <mat-select placeholder="Assign User" formControlName="assigned_to">
+            <mat-option *ngFor="let user of allUsers" [value]="user?.id">
+              {{user?.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="btn-div flex-right">
+      <button class="light-btn" (click)="close()">Cancel</button>
+      <button class="btn" (click)="submit()">Save Task</button>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,187 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import './custom.scss';
+
+$custom-typography: mat-typography-config($font-family: 'Poppins' !important);
+
+@include angular-material-typography($custom-typography);
+
+body,
+input {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+  line-height: 1.2
+}
+
+
+.flex-justify {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex {
+  display: flex;
+}
+
+
+.flex-justify-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.my-card {
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  padding: 30px
+}
+
+.flex-align {
+  display: flex;
+  align-items: center;
+}
+
+*:focus {
+  outline: none
+}
+
+
+.error-div {
+  margin: 5px;
+  color: red;
+
+  span {
+    font-size: 12px;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.header {
+  position: sticky;
+  top: 0;
+}
+
+.page-padding {
+  padding: 4rem 5%;
+}
+
+
+.btn {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: poppins;
+  background: #1a8f8a;
+  color: white;
+  cursor: pointer;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.fw {
+  width: 100%;
+}
+
+
+.light-btn {
+  border: none;
+  border-radius: 5px;
+  font-family: poppins;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px
+}
+
+
+.cursor {
+  cursor: pointer;
+}
+
+.small {
+  font-size: 13px;
+}
+
+
+.note-col {
+  margin-bottom: 30px;
+}
+
+.note-card {
+  border-radius: 3px;
+  height: 100%;
+
+  .note-head {
+    padding: 6px 2px 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.1);
+  cursor: pointer;
+  margin-bottom: 20px;
+
+  .dot-icon {
+    position: relative;
+    left: 6px;
+  }
+}
+
+.fh {
+  height: 100%;
+}

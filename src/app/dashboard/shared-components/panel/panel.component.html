@@ -1,0 +1,42 @@
+<div class="container-height">
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async)?.matches ? 'over' : 'side'" [opened]="!(isHandset$ | async)?.matches">
+      <div class="logo">
+        <img src="../../../../assets/devza-light.png" />
+      </div>
+      <mat-nav-list>
+        <div class="menu-list">
+          <div mat-list-item routerLink="" class="menu-list-item" routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+            <span class="material-icons">
+              padding
+            </span>
+            <div>
+              <p class="menu-item-text">Tasks</p>
+            </div>
+          </div>
+          <div mat-list-item routerLink="/users" class="menu-list-item" routerLinkActive="active">
+            <span class="material-icons">
+              supervisor_account
+            </span>
+            <div>
+              <p class="menu-item-text">Users</p>
+            </div>
+          </div>
+
+
+        </div>
+      </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+      <div class="padding">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

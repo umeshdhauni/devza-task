@@ -1,0 +1,61 @@
+<div class="header">
+  <app-header title="Task List"></app-header>
+</div>
+<div class="page-padding">
+
+  <div>
+    <div class="flex-right">
+      <button class="btn" (click)="createTask()">Create New Task</button>
+    </div>
+    <div class="note-list">
+      <div class="row" cdkDropListGroup>
+       
+        <div class="col-md-4 col-sm-4" *ngFor="let column of allTasks |keyvalue;let columnIndex=index">
+          <div class="col-heading">
+            <h5>{{column?.key}}</h5>
+          </div>
+          <div cdkDropList #taskList="cdkDropList" [cdkDropListData]="allTasks[column?.key]"
+            (cdkDropListDropped)="dropTask($event)" class="example-list fh" [attr.priority]='column?.key'>
+            <div *ngIf="allTasks[column?.key]?.length > 0">
+              <div *ngFor="let note of allTasks[column?.key];let i=index" cdkDrag [cdkDragData]="note"
+                class="example-box">
+                <div class="note-card">
+                  <div class="pd">
+                    <div class="flex-justify-align cursor">
+                      <div class="priority" *ngIf="note?.priority">
+                        {{note?.priority | priority}}
+                      </div>
+                      <div>
+                        <span class="material-icons" [matMenuTriggerFor]="menuDelete">
+                          more_horiz
+                        </span>
+                        <mat-menu #menuDelete="matMenu">
+                          <button mat-menu-item (click)="updateTask(note)">Update Note</button>
+                          <button mat-menu-item (click)="deleteTask(note)">Delete Note</button>
+                        </mat-menu>
+                      </div>
+                    </div>
+                    <div class="note-details">
+                      <p>{{note?.message}}</p>
+                      <div class="small mt-2">
+                        <p>Assigned To : {{note?.assigned_name?note?.assigned_name:'None'}} <span class="ml-2 link"
+                            (click)="assignUser(note)">{{note?.assigned_name?'Change':'Assign'}}</span></p>
+                        <p *ngIf="note?.due_date">Due Date : {{note?.due_date}}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div *ngIf="allTasks[column?.key]?.length == 0">
+                <p>No Task Available</p>
+              </div>
+          </div>
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

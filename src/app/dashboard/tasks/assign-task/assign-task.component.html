@@ -1,0 +1,20 @@
+<div>
+  <h3>Assign Task</h3>
+  <div class="form-div">
+    <form [formGroup]="form">
+      <div>
+        <mat-form-field class="fw">
+          <mat-select placeholder="Assign User" formControlName="assigned_to">
+            <mat-option *ngFor="let user of allUsers" [value]="user?.id">
+              {{user?.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+    <div class="btn-div flex-right">
+      <button class="light-btn" (click)="close()">Cancel</button>
+      <button class="btn" (click)="assignUser(form?.value)">Assign User</button>
+    </div>
+  </div>
+</div>

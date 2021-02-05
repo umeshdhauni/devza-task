@@ -1,0 +1,82 @@
+.toolBar {
+  background: white;
+  border-bottom: 1px solid #efefef69;
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 0px;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  height: 65px;
+}
+
+.toggle-icon {
+  font-size: 24px;
+}
+
+.form-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5%;
+}
+
+.logo {
+  margin-left: 10px
+}
+
+.profile-image {
+  // flex: 0.5;
+  text-align: right;
+
+  img {
+    border-radius: 100%;
+    cursor: pointer;
+  }
+}
+
+.input-div {
+  //   flex: 1;
+  width: 40%;
+}
+
+.input-search {
+  margin-bottom: 0;
+  border: none;
+  outline: none;
+  display: initial;
+  background-color: #f6f8fc;
+  padding: 10px;
+  width: 100%;
+  //   height: 46px;
+  border-radius: 5px;
+  font-size: 16px;
+  //   margin-left: 60px;
+}
+
+.form-main {
+  width: 100%;
+  // padding: 0px 30px 0px 10px;
+
+}
+
+h4 {
+  margin-bottom: 0;
+}
+
+.location {
+  margin-right: 20px;
+
+  .iconify {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .input-search {
+    margin: 0px 10px !important;
+    width: 80% !important;
+  }
+}

@@ -1,0 +1,17 @@
+.pd {
+  padding: 10px 15px;
+}
+
+.note-details{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    img{
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        margin-bottom: 10px;
+    }
+}
