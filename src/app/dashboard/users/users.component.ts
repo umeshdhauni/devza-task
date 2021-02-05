@@ -8,6 +8,7 @@ import { CommonService } from 'src/app/utils/services/common/common.service';
 })
 export class UsersComponent implements OnInit {
   allUsers: any[];
+  totalUsers: any[];
   constructor(
     private common: CommonService
   ) { }
@@ -18,11 +19,16 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     this.common.getUsers().subscribe(res => {
-      console.log(res['users'])
       this.allUsers = res['users'];
+      this.totalUsers = res['users'];
     }, (err) => {
 
     })
+  }
+
+
+  searchUser(searchText: string) {
+   
   }
 
 }

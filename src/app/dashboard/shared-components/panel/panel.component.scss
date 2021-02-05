@@ -1,6 +1,5 @@
 .menu-list-item.active {
   border-radius: 5px;
-  //   color: #1a8f8a;
   background-color: #ffffff59;
 }
 
@@ -10,22 +9,17 @@
   align-items: center;
   cursor: pointer;
   align-items: center;
-  //   min-height: 40px;
-  //   margin: 10px 0;
   padding: 13px 10px;
   text-align: center;
   margin-bottom: 10px;
   color: white;
-
-  .iconify {
-    font-size: 24px;
-  }
 
   p {
     margin-bottom: 0;
   }
 
   .menu-item-text {
+    font-size: 14px;
     margin-top: 7px !important;
   }
 }
@@ -38,7 +32,6 @@
   background-color: white;
   border-bottom: 1px solid #e0e0e0;
   display: flex;
-  // justify-content: space-between;
   justify-content: flex-end;
 
   align-items: center;
@@ -52,7 +45,6 @@
 
   img {
     width: 100%;
-    // filter: invert(1);
   }
 }
 
@@ -75,12 +67,9 @@
 
 .sidenav {
   width: 120px;
-  //   background-color: white;
   background: #1a8f8a;
-  // color:white;
   padding: 15px 20px !important;
   top: 0;
-  //   top: 65px !important;
   border-color: white !important;
   padding-right: 1rem;
 
@@ -108,5 +97,4 @@
 
 .container-height {
   height: 100vh;
-  // padding-top: 65px;
 }

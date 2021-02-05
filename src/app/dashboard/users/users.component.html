@@ -1,0 +1,23 @@
+<div class="header">
+  <app-header title="User List" (searchData)="searchUser($event)"></app-header>
+</div>
+<div class="page-padding">
+
+  <div>
+    <div class="note-list">
+      <div class="row">
+        <div *ngFor="let user of allUsers;let i=index" class="col-lg-3 col-md-4 col-sm-6 col-xs-12 note-col">
+          <div class="note-card">
+            <div class="pd fh">
+              <div class="note-details">
+                <img [src]="user?.picture" />
+                <p>{{user?.name}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

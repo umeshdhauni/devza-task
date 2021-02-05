@@ -2,7 +2,7 @@ import { moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { CommonService } from 'src/app/utils/services/common/common.service';
-import { getPriorityId, priorityList, convertIntoFormData } from 'src/app/utils/shared/common';
+import { getPriorityId, priorityList, convertIntoFormData, formatDate } from 'src/app/utils/shared/common';
 import { AssignTaskComponent } from './assign-task/assign-task.component';
 import { DeleteTaskComponent } from './delete-task/delete-task.component';
 import { TaskFormComponent } from './task-form/task-form.component';
@@ -20,6 +20,8 @@ export interface TaskList {
 })
 export class TasksComponent implements OnInit {
   allTasks: TaskList = {};
+  totalTasks: any[];
+  selectedDate: Date;
   constructor(
     private common: CommonService,
     private dialog: MatDialog
@@ -31,6 +33,7 @@ export class TasksComponent implements OnInit {
 
   getTasks() {
     this.common.getTasks().subscribe(res => {
+      this.totalTasks = res['tasks'];
       this.arrangeTasks(res['tasks']);
     }, (err) => {
 
@@ -114,6 +117,15 @@ export class TasksComponent implements OnInit {
     }, (err) => {
 
     })
+  }
+
+  searchTask(searchText: string) {
+    
+  }
+
+  dateFilter(event) {
+    let value = formatDate(event.value);
+    console.log(value)
   }
 
 }

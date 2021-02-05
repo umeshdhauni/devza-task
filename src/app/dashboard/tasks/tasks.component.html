@@ -1,15 +1,23 @@
 <div class="header">
-  <app-header title="Task List"></app-header>
+  <app-header title="Task List" (searchData)="searchTask($event)"></app-header>
 </div>
 <div class="page-padding">
 
   <div>
-    <div class="flex-right">
+    <div class="flex-justify-align">
+      <div class="flex-align">
+        <mat-form-field class="fw">
+          <mat-label>Filter by Date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate" (dateChange)="dateFilter($event)">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
       <button class="btn" (click)="createTask()">Create New Task</button>
     </div>
     <div class="note-list">
       <div class="row" cdkDropListGroup>
-       
+
         <div class="col-md-4 col-sm-4" *ngFor="let column of allTasks |keyvalue;let columnIndex=index">
           <div class="col-heading">
             <h5>{{column?.key}}</h5>
@@ -49,11 +57,11 @@
               </div>
             </div>
             <div *ngIf="allTasks[column?.key]?.length == 0">
-                <p>No Task Available</p>
-              </div>
+              <p>No Task Available</p>
+            </div>
           </div>
 
-         
+
         </div>
       </div>
     </div>

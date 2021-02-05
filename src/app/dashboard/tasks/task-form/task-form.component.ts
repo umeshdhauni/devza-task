@@ -18,6 +18,7 @@ export class TaskFormComponent implements OnInit {
   form: any;
   priorityList: any[] = priorityList;
   allUsers: any[];
+  minDate: Date = new Date();
   constructor(
     private fb: FormBuilder,
     private dialogRef: MatDialogRef<TaskFormComponent>,
