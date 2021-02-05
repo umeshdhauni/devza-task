@@ -7,19 +7,13 @@ import { AssignTaskComponent } from './assign-task/assign-task.component';
 import { DeleteTaskComponent } from './delete-task/delete-task.component';
 import { TaskFormComponent } from './task-form/task-form.component';
 
-export interface TaskList {
-  normal?: any[],
-  mid?: any[],
-  high?: any[],
-}
-
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-  allTasks: TaskList = {};
+  allTasks: any = {};
   totalTasks: any[];
   selectedDate: Date;
   loading: boolean;
@@ -151,6 +145,18 @@ export class TasksComponent implements OnInit {
     this.arrangeTasks(result);
   }
 
-  
+  dateFilter(event) {
+    let value = formatDate(event.value);
+
+    let result = this.totalTasks.filter(task => {
+      return (!task.due_date || (value >= task.due_date));
+    });
+    this.arrangeTasks(result);
+  }
+
+  removeDateFilter() {
+    this.selectedDate = null;
+    this.arrangeTasks(this.totalTasks);
+  }
 
 }
