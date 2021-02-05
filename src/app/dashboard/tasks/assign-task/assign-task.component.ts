@@ -78,4 +78,8 @@ export class AssignTaskComponent implements OnInit {
     }
   }
 
+  close(){
+    this.dialogRef.close();
+  }
+
 }

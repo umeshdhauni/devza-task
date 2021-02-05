@@ -151,18 +151,6 @@ export class TasksComponent implements OnInit {
     this.arrangeTasks(result);
   }
 
-  dateFilter(event) {
-    let value = formatDate(event.value);
-
-    let result = this.totalTasks.filter(task => {
-      return (!task.due_date || (value >= task.due_date));
-    });
-    this.arrangeTasks(result);
-  }
-
-  removeDateFilter() {
-    this.selectedDate = null;
-    this.arrangeTasks(this.totalTasks);
-  }
+  
 
 }
