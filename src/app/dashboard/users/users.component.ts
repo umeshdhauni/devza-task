@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
 
 
   searchUser(searchText: string) {
-   
+    
   }
 
 }

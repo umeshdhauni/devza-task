@@ -107,7 +107,27 @@ export class TasksComponent implements OnInit {
   }
 
   dropTask(event) {
-    
+    console.log(event, event.previousContainer.data);
+    if (event.previousContainer === event.container) {
+      // moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      console.log('else', event.previousContainer.id, event.container.id)
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+
+      let currentContainer = event.container.element.nativeElement;
+      let currentTask = event.item.data;
+      let priority = getPriorityId(currentContainer.getAttribute('priority'));
+      if (currentTask) {
+        let data = {
+          priority: priority,
+          taskid: currentTask.id
+        }
+        this.updateTaskOrder(data);
+      }
+    }
   }
 
   updateTaskOrder(data: any) {
@@ -125,7 +145,7 @@ export class TasksComponent implements OnInit {
 
   dateFilter(event) {
     let value = formatDate(event.value);
-    console.log(value)
+    console.log(value);
   }
 
 }
