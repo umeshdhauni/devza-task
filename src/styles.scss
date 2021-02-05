@@ -196,3 +196,11 @@ body {
 .mat-spinner circle {
   stroke: white !important;
 }
+
+
+.progress-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}

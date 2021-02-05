@@ -9,6 +9,7 @@ import { CommonService } from 'src/app/utils/services/common/common.service';
 export class UsersComponent implements OnInit {
   allUsers: any[];
   totalUsers: any[];
+  loading: boolean;
   constructor(
     private common: CommonService
   ) { }
@@ -18,11 +19,13 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
+    this.loading = true;
     this.common.getUsers().subscribe(res => {
+      this.loading = false;
       this.allUsers = res['users'];
       this.totalUsers = res['users'];
     }, (err) => {
-
+      this.loading = false;
     })
   }
 
@@ -34,10 +37,6 @@ export class UsersComponent implements OnInit {
       let search = searchText.toLowerCase();
       return (new RegExp(search)).test(userName)
     });
-
-    console.log(searchText, result)
-
-
     this.allUsers = result;
   }
 

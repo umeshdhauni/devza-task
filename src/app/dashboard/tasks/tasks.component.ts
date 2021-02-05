@@ -22,6 +22,7 @@ export class TasksComponent implements OnInit {
   allTasks: TaskList = {};
   totalTasks: any[];
   selectedDate: Date;
+  loading: boolean;
   constructor(
     private common: CommonService,
     private dialog: MatDialog
@@ -32,11 +33,13 @@ export class TasksComponent implements OnInit {
   }
 
   getTasks() {
+    this.loading = true;
     this.common.getTasks().subscribe(res => {
+      this.loading = false;
       this.totalTasks = res['tasks'];
       this.arrangeTasks(res['tasks']);
     }, (err) => {
-
+      this.loading = false;
     })
   }
 
@@ -111,7 +114,6 @@ export class TasksComponent implements OnInit {
     if (event.previousContainer === event.container) {
       // moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      console.log('else', event.previousContainer.id, event.container.id)
       transferArrayItem(event.previousContainer.data,
         event.container.data,
         event.previousIndex,
@@ -140,7 +142,6 @@ export class TasksComponent implements OnInit {
   }
 
   searchTask(searchText: string) {
-    // console.log(searchText)
     let result = this.totalTasks.filter((task) => {
       let taskMessage = task.message.toLowerCase();
       let search = searchText.toLowerCase();
@@ -150,6 +151,18 @@ export class TasksComponent implements OnInit {
     this.arrangeTasks(result);
   }
 
-  
+  dateFilter(event) {
+    let value = formatDate(event.value);
+
+    let result = this.totalTasks.filter(task => {
+      return (!task.due_date || (value >= task.due_date));
+    });
+    this.arrangeTasks(result);
+  }
+
+  removeDateFilter() {
+    this.selectedDate = null;
+    this.arrangeTasks(this.totalTasks);
+  }
 
 }
