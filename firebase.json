@@ -9,7 +9,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/dist/devza-task-manager/index.html"
+        "destination": "/index.html"
       }
     ]
   }
